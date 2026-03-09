@@ -4,7 +4,7 @@ cache: true
 endpoints:
   custom:
     - name: "xai"
-      apiKey: "${xai-4fDAFqhYsloXr7hkCPClhjeKWVAI6cGh6gMHcHGzDnFASyY2LvaIaaAMUfTYjwCYpjB62oHlOqXfYgOO}"
+      apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
         default:
