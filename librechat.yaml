@@ -1,0 +1,41 @@
+version: 1.3.5
+cache: true
+
+endpoints:
+  custom:
+    - name: "xai"
+      apiKey: "${xai-4fDAFqhYsloXr7hkCPClhjeKWVAI6cGh6gMHcHGzDnFASyY2LvaIaaAMUfTYjwCYpjB62oHlOqXfYgOO}"
+      baseURL: "https://api.x.ai/v1"
+      models:
+        default:
+          - "grok-4-1-fast-reasoning"
+          - "grok-4"
+          - "grok-3-mini"
+          - "grok-2-vision"
+        fetch: false
+      web_search: true
+
+agents:
+  recursionLimit: 25
+  maxRecursionLimit: 50
+  capabilities:
+    - "chain"
+    - "web_search"
+    - "execute_code"
+
+interface:
+  title: "Grok"
+  modelSelect: true
+  parameters: true
+
+modelSpecs:
+  enforce: true
+  prioritize: true
+  list:
+    - name: "Grok Default"
+      label: "Grok"
+      default: true
+      preset:
+        endpoint: "xai"
+        model: "grok-4-1-fast-reasoning"
+        systemMessage: "You are Grok, built by xAI. Always honest and professional."
