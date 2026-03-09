@@ -32,16 +32,16 @@ endpoints:
         default:
           - "grok-4-1-fast-reasoning"   # 預設模型
           - "grok-4"                    # 旗艦版
-          - "grok-3-mini"               # 省錢版
-          - "grok-2-vision"             # 圖像理解版
-        fetch: false                    # 不自動拉取其他模型
+        fetch: true
+      defaultModel: "grok-4-1-fast-reasoning"
       titleConvo: true
       titleMethod: "completion"
       titleModel: "grok-4-1-fast-reasoning"
       summarize: true
       summaryModel: "grok-4-1-fast-reasoning"
       modelDisplayLabel: "Grok"
-      web_search: true                  # 強制啟用 Web Search
+      web_search: true
+      web_search_default: true          # 強制啟用 Web Search
 
 # 預設
 modelSpecs:
