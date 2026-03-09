@@ -21,7 +21,10 @@ endpoints:
         default:
           - "grok-4-1-fast-reasoning"   # 你最常用的模型放第一
           - "grok-4"
-        fetch: true                   
+          - "grok-imagine-image-pro"
+          - "grok-imagine-video"
+          - "Realtime API"
+        fetch: false                   
       titleConvo: true
       titleMethod: "completion"
       titleModel: "grok-4-1-fast-reasoning"
