@@ -22,7 +22,7 @@ endpoints:
         fetch: true
       titleConvo: true
       titleMethod: "completion"
-      titleModel: "grok"
+      titleModel: ""                # 留空，不指定預設
       summarize: true
-      summaryModel: "grok"
+      summaryModel: ""
       modelDisplayLabel: "Grok"
