@@ -15,13 +15,13 @@ endpoints:
         fetch: false
       web_search: true
 
-agents:
-  recursionLimit: 25
-  maxRecursionLimit: 50
-  capabilities:
-    - "chain"
-    - "web_search"
-    - "execute_code"
+# agents:  # ← 註釋掉或直接刪除這整塊
+#   recursionLimit: 25
+#   maxRecursionLimit: 50
+#   capabilities:
+#     - "chain"
+#     - "web_search"
+#     - "execute_code"
 
 interface:
   title: "Grok"
