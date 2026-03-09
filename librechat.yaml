@@ -12,7 +12,7 @@ endpoints:
           - "grok-4"
           - "grok-3-mini"
           - "grok-2-vision"
-        fetch: false
+        fetch: true
       web_search: true
 
 # agents:  # ← 註釋掉或直接刪除這整塊
@@ -36,6 +36,6 @@ modelSpecs:
       label: "Grok"
       default: true
       preset:
-        endpoint: "xai"
+        endpoint: "xai api"
         model: "grok-4-1-fast-reasoning"
         systemMessage: "You are Grok, built by xAI. Always honest and professional."
