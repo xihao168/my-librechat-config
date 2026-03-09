@@ -7,8 +7,11 @@ endpoints:
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        fetch: true
+        default:
+          - "grok-4-1-fast-reasoning"   # 固定這個作為後端啟動的保底模型
+        fetch: true                     # 啟動後自動拉取所有最新模型
       titleConvo: true
+      titleMethod: "completion"
       titleModel: "grok-4-1-fast-reasoning"
       summarize: true
       summaryModel: "grok-4-1-fast-reasoning"
