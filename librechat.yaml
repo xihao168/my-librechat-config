@@ -17,3 +17,4 @@ endpoints:
       summaryModel: "grok-4-1-fast-reasoning"
       modelDisplayLabel: "Grok"
       web_search: true
+      web_search_default: true
