@@ -1,22 +1,20 @@
 version: 1.3.6
 
-cache: true
-
 endpoints:
   custom:
-    - name: "grok"
-      apiKey: "${XAI_API_KEY}"
+    - name: "Grok"
+      apiKey: "${GROK_API_KEY}"             
       baseURL: "https://api.x.ai/v1"
       models:
         default: ["grok-4-1-fast-reasoning"]
-      fetch: true
+        fetch: true                         
       titleConvo: true
-      titleMethod: "completion"
       titleModel: "grok-4-1-fast-reasoning"
       summarize: false
-      modelDisplayLabel: "Grok"
+      forcePrompt: false
+      modelDisplayLabel: "Grok 4.1 Fast Reasoning"
+      fetch: true
 
-webSearch:
-  tavilyApiKey: "${TAVILY_API_KEY}"
-  jinaApiKey: "${JINA_API_KEY}"
-  jinaApiUrl: "${JINA_API_URL}"
+defaultEndpoint: Grok
+modelDisplayOrder:
+  - Grok
