@@ -1,21 +1,22 @@
 version: 1.3.6
 
-interface:
-  fileSearch: true
-  agents:
-    use: true
-
-search:
-  enabled: true
-  engines:
-    - name: "Tavily"
-      apiKey: "${TAVILY_API_KEY}"
+cache: true
 
 endpoints:
   custom:
-    - name: "Grok"
+    - name: "grok"
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default: ["grok-4-1-fast-reasoning"]
-      default: true
+        default: ["grok-4.1-fast-reasoning"]
+      fetch: false
+      titleConvo: true
+      titleMethod: "completion"
+      titleModel: "grok-4.1-fast-reasoning"
+      summarize: false
+      modelDisplayLabel: "Grok"
+
+webSearch:
+  tavilyApiKey: "${TAVILY_API_KEY}"
+  jinaApiKey: "${JINA_API_KEY}"
+  jinaApiUrl: "${JINA_API_URL}"
