@@ -337,6 +337,13 @@ endpoints:
 
   custom:
       # Models configuration
+      - name: 'xAI' # Unique name for the endpoint
+      # For `apiKey` and `baseURL`, you can use environment variables that you define.
+      # recommended environment variables:
+      apiKey: '${XAI_API_KEY}'
+      baseURL: 'https://api.x.ai/v1'
+
+      # Models configuration
       models:
         # List of default models to use. At least one value is required.
         default: ['grok-4-1-fast-reasoning', 'grok-4.20-beta-0309-reasoning', 'grok-4.20-multi-agent-beta-0309']
