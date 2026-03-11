@@ -348,6 +348,36 @@ endpoints:
       titleModel: 'grok-4-1-fast-reasoning'
       modelDisplayLabel: 'Grok'
 
+
+      # Optional configurations
+
+      # Title Conversation setting
+      titleConvo: true # Set to true to enable title conversation
+
+      # Title Method: Choose between "completion" or "functions".
+      # titleMethod: "completion"  # Defaults to "completion" if omitted.
+
+      # Title Model: Specify the model to use for titles.
+      titleModel: 'mistral-tiny' # Defaults to "gpt-3.5-turbo" if omitted.
+
+      # Summarize setting: Set to true to enable summarization.
+      # summarize: false
+
+      # Summary Model: Specify the model to use if summarization is enabled.
+      # summaryModel: "mistral-tiny"  # Defaults to "gpt-3.5-turbo" if omitted.
+
+      # The label displayed for the AI model in messages.
+      modelDisplayLabel: 'Mistral' # Default is "AI" when not set.
+
+      # Add additional parameters to the request. Default params will be overwritten.
+      # addParams:
+      # safe_prompt: true # This field is specific to Mistral AI: https://docs.mistral.ai/api/
+
+      # Drop Default params parameters from the request. See default params in guide linked below.
+      # NOTE: For Mistral, it is necessary to drop the following parameters or you will encounter a 422 Error:
+      dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+
+
   # AWS Bedrock Example
   # Note: Bedrock endpoint is configured via environment variables
   # bedrock:
