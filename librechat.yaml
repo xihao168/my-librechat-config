@@ -1,20 +1,59 @@
-version: 1.3.6
+version: 1.3.5
 
+cache: true
+
+# 強制只啟用 Grok (xAI) 端點，其他內建的全部禁用
 endpoints:
-  custom:
-    - name: "Grok"
-      apiKey: "${GROK_API_KEY}"             
-      baseURL: "https://api.x.ai/v1"
-      models:
-        default: ["grok-4-1-fast-reasoning"]
-        fetch: true                         
-      titleConvo: true
-      titleModel: "grok-4-1-fast-reasoning"
-      summarize: false
-      forcePrompt: false
-      modelDisplayLabel: "Grok 4.1 Fast Reasoning"
-      fetch: true
+  # 只保留 xAI/Grok，其他像 openAI、anthropic 等不定義或設 apiKey 無效
+  xAI:
+    name: "xAI"
+    apiKey: "${XAI_API_KEY}"          # 從 env 讀取你的 Grok key
+    baseURL: "https://api.x.ai/v1"    # Grok 官方 API
+    models:
+      default:                        # 只列出你想用的 Grok 模型（可加減）
+        - "grok"
+      fetch: true                     # 自動抓取可用模型（推薦）
+    titleConvo: true
+    titleModel: "current_model"
+    summarize: false
+    modelDisplayLabel: "Grok"
 
-defaultEndpoint: Grok
-modelDisplayOrder:
-  - Grok
+  # 不定義其他 custom endpoints → 內建的 OpenAI/Anthropic 等會因為 .env key 無效而隱藏
+
+# 搜索與 RAG 相關設定（強制 Tavily + Jina）
+search: true
+defaultSearch: "tavily"             # 優先/只用 Tavily 搜索
+
+reranker:
+  provider: "jina"                  # 或 rerankerType: jina （視版本）
+  # jina 的其他設定如果需要（通常 env 的 JINA_API_KEY 就夠）
+  # apiKey: "${JINA_API_KEY}"       # 大多從 env 讀，不一定要重複寫
+
+# 禁用其他不想要的搜索 provider（即使 .env 有 key 也優先用 yaml 蓋）
+disabledSearchProviders:
+  - serper
+  - searxng
+  - google
+  - cohere          # 避免 Cohere reranker 干擾
+  - exa
+  - you
+  - brave
+  - kagi
+
+# 其他推薦設定（保持乾淨、只用 Grok）
+interface:
+  privacyPolicy: # 可自訂或留空
+    externalUrl: ""
+    openNewTab: true
+  termsOfService:
+    externalUrl: ""
+    openNewTab: true
+
+registration:                   # 如果你不想開放註冊
+  socialLogins: []              # 關閉 Google 等登入（視需求）
+
+# 檔案上傳 / RAG 等保持預設，但因為你只用 Grok，效果有限
+fileStrategy: "local"           # 或視 Railway 設定
+
+# 可選：鎖定預設模型為 Grok
+defaultModel: "grok-beta"       # 或你最愛的 Grok 版本
