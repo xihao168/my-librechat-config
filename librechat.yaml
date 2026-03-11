@@ -13,7 +13,7 @@ endpoints:
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default: ["grok-4", "grok-4-fast", "grok-beta"]   # Add/remove as you like
+        default: ["grok-4-1-fast-reasoning"]   # Add/remove as you like
         fetch: true                                       # Auto-detects newest models
       titleConvo: true
       titleModel: "grok-4"
