@@ -8,11 +8,11 @@ endpoints:
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default: ["grok-4.1-fast-reasoning"]
+        default: ["grok-4-1-fast-reasoning"]
       fetch: true
       titleConvo: true
       titleMethod: "completion"
-      titleModel: "grok-4.1-fast-reasoning"
+      titleModel: "grok-4-1-fast-reasoning"
       summarize: false
       modelDisplayLabel: "Grok"
 
