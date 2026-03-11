@@ -9,7 +9,7 @@ endpoints:
       baseURL: "https://api.x.ai/v1"
       models:
         default: ["grok-4.1-fast-reasoning"]
-      fetch: false
+      fetch: true
       titleConvo: true
       titleMethod: "completion"
       titleModel: "grok-4.1-fast-reasoning"
